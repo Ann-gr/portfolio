@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+$mobile: 768px;
+
+@mixin mobile {
+  @media (width <= $mobile) {
+    @content;
+  }
+}
+
+:root {
+  --color-green: #c5f82a;
+  --color-white: #ffffff;
+  --color-grey-700: #333333;
+  --color-grey-800: #1f1f1f;
+  --color-grey-900: #141414;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-grey-900);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-block: 50px;
+
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+.profile {
+  max-width: 387px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-grey-800);
+  padding: 40px;
+  border-radius: 9px;
+  margin-bottom: 100px;
+
+  @include mobile {
+    max-width: 327px;
+    padding: 20px;
+  }
+
+  & * {
+    margin: 0;
+    line-height: 1;
+  }
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-img,
+    &-location,
+    &-career {
+      margin-bottom: 30px;
+    }
+
+    &-img {
+      width: 88px;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    &-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+
+    &-location {
+      color: var(--color-green);
+      font-weight: 600;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 20px;
+    padding: 0;
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      background-color: var(--color-grey-700);
+      padding: 13px 0 13px 0;
+      border-radius: 4px;
+      font-weight: 700;
+      width: 304px;
+      display: block;
+      text-decoration: none;
+      color: var(--color-white);
+
+      &:hover {
+        color: var(--color-grey-900);
+        background-color: var(--color-green);
+        transition-duration: 0.2s;
+      }
+
+      @include mobile {
+        width: 245px;
+      }
+    }
+  }
+}
