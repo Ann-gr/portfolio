@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+$mobile: 768px;
+
+@mixin mobile {
+  @media (width <= $mobile) {
+    @content;
+  }
+}
+
+:root {
+  --color-yellow: #f4d04e;
+  --color-gray-500: #6b6b6b;
+  --color-gray-950: #111111;
+  --color-white: #ffffff;
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  font-weight: 500;
+  background-color: var(--color-yellow);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card {
+  max-width: 384px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgb(17, 17, 17);
+  box-shadow: 8px 8px 0px 0px rgb(0, 0, 0);
+  margin-bottom: 100px;
+  font-size: 14px;
+
+  @include mobile {
+    max-width: 327px;
+    font-size: 12px;
+  }
+
+  & * {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 24px;
+
+    @include mobile {
+      width: 279px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    max-width: 336px;
+
+    @include mobile {
+      max-width: 279px;
+    }
+
+    &-tag,
+    &-title,
+    &-name {
+      font-weight: 800;
+    }
+
+    &-tag {
+      padding: 4px 12px;
+      border-radius: 4px;
+      background-color: var(--color-yellow);
+      max-width: fit-content;
+    }
+
+    &-title h1 {
+      font-size: 24px;
+      color: var(--color-gray-950);
+
+      &:hover {
+        color: var(--color-yellow);
+        cursor: pointer;
+        transition-duration: 0.2s;
+      }
+
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+
+    &-description {
+      font-size: 16px;
+      color: var(--color-gray-500);
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    &-author {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 12px;
+    }
+  }
+}
